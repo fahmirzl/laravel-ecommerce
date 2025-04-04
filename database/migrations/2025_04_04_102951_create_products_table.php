@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('product');
             $table->unsignedBigInteger('category_id');
             $table->integer('price');
+            $table->integer('stock');
             $table->string('image');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

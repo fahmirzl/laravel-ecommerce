@@ -48,6 +48,63 @@
             </div>
         </div>
     </div>
+    <div class="products">
+        <div class="options">
+            <span onclick="setActiveOptions(this)" class="active">Featured</span>
+            <span onclick="setActiveOptions(this)">Latest</span>
+        </div>
+        <div class="content">
+            <div class="product-card">
+                <div class="preview">
+                    <img src="./product-test.png" alt="">
+                </div>
+                <div class="information">
+                    <div class="title">Elegant Ebony Sweatshirts</div>
+                    <div class="pricing">
+                        <div class="availability">IN STOCK</div>
+                        <div class="price">$35.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="preview">
+                    <img src="./product-test.png" alt="">
+                </div>
+                <div class="information">
+                    <div class="title">Elegant Ebony Sweatshirts</div>
+                    <div class="pricing">
+                        <div class="availability">IN STOCK</div>
+                        <div class="price">$35.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="preview">
+                    <img src="./product-test.png" alt="">
+                </div>
+                <div class="information">
+                    <div class="title">Elegant Ebony Sweatshirts</div>
+                    <div class="pricing">
+                        <div class="availability">IN STOCK</div>
+                        <div class="price">$35.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="preview">
+                    <img src="./product-test.png" alt="">
+                </div>
+                <div class="information">
+                    <div class="title">MOCKUP Black</div>
+                    <div class="pricing">
+                        <div class="availability">IN STOCK</div>
+                        <div class="price">$35.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <x-footer></x-footer>
 @endsection
 
 @push('styles')
@@ -176,9 +233,130 @@
             line-height: 175%;
             padding-right: 56px;
         }
+
+        .products {
+            max-width: 1116px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 72px;
+            padding-bottom: 80px;
+        }
+
+        .products .options {
+            height: 31px;
+            display: flex;
+            column-gap: 16px;
+            align-items: center;
+        }
+
+        .products .options span {
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 10px;
+            padding: 3px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            line-height: 175%;
+            color: #5c5f6a;
+        }
+
+        .products .options span.active {
+            color: #202533;
+            font-weight: 500;
+            border: 1px solid #e9e9eb;
+        }
+
+        .products .content {
+            margin-top: 48px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 40px;
+            column-gap: 20px;
+        }
+
+        .product-card {
+            width: 264px;
+            height: 434px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 24px;
+            padding: 16px 8px;
+            border-radius: 4px;
+        }
+
+        .product-card .preview {
+            background-color: #f6f6f6;
+            border-radius: 8px;
+            width: 100%;
+            height: 312px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .information {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 12px;
+            justify-content: center;
+        }
+
+        .information .title {
+            font-size: 15px;
+            line-height: 175%;
+            font-weight: 600;
+            color: #0e1422;
+        }
+
+        .information .pricing {
+            width: 100%;
+            display: flex;
+            column-gap: 16px;
+            align-items: center;
+            margin-left: -1.5px;
+        }
+
+        .information .pricing .availability {
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 8px;
+            padding: 1px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            line-height: 175%;
+            color: #0e1422;
+            border: 1px solid #e6e7e8;
+            font-weight: 500;
+        }
+
+        .information .pricing .price {
+            color: #474b57;
+            font-size: 15px;
+            margin-top: -1.5px;
+        }
     </style>
 @endpush
 
 @push('scripts')
-    <script></script>
+    <script>
+        function setActiveOptions(span) {
+            document.querySelectorAll('span.active').forEach(el => {
+                if (el !== span) {
+                    el.classList.remove('active');
+                }
+            });
+
+            span.classList.toggle('active');
+        }
+    </script>
 @endpush

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Ecommerce')
+@section('title', '- Home')
 
 @section('content')
     <x-navbar></x-navbar>
@@ -48,60 +48,16 @@
             </div>
         </div>
     </div>
-    <div class="products">
+    <div class="products" id="products">
         <div class="options">
-            <span onclick="setActiveOptions(this)" class="active">Featured</span>
-            <span onclick="setActiveOptions(this)">Latest</span>
+            <span onclick="setActiveOptions(this); window.location.href = '/#products'" class="active">Featured</span>
+            <span onclick="setActiveOptions(this); window.location.href = '?type=latest#products'">Latest</span>
         </div>
         <div class="content">
-            <div class="product-card">
-                <div class="preview">
-                    <img src="./product-test.png" alt="">
-                </div>
-                <div class="information">
-                    <div class="title">Elegant Ebony Sweatshirts</div>
-                    <div class="pricing">
-                        <div class="availability">IN STOCK</div>
-                        <div class="price">$35.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="preview">
-                    <img src="./product-test.png" alt="">
-                </div>
-                <div class="information">
-                    <div class="title">Elegant Ebony Sweatshirts</div>
-                    <div class="pricing">
-                        <div class="availability">IN STOCK</div>
-                        <div class="price">$35.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="preview">
-                    <img src="./product-test.png" alt="">
-                </div>
-                <div class="information">
-                    <div class="title">Elegant Ebony Sweatshirts</div>
-                    <div class="pricing">
-                        <div class="availability">IN STOCK</div>
-                        <div class="price">$35.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="preview">
-                    <img src="./product-test.png" alt="">
-                </div>
-                <div class="information">
-                    <div class="title">MOCKUP Black</div>
-                    <div class="pricing">
-                        <div class="availability">IN STOCK</div>
-                        <div class="price">$35.00</div>
-                    </div>
-                </div>
-            </div>
+            @foreach ($products as $product)
+                <x-product-card price="{{ number_format($product->price, 0, ',', '.') }}"
+                    img="{{ asset('storage/' . $product->image) }}">{{ $product->product }}</x-product-card>
+            @endforeach
         </div>
     </div>
     <x-footer></x-footer>
@@ -165,6 +121,7 @@
             flex-direction: row-reverse;
             margin-top: 48px;
             margin-left: 2px;
+            cursor: pointer;
         }
 
         .view-collection span {
@@ -239,9 +196,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 auto;
-            margin-top: 72px;
-            padding-bottom: 80px;
+            margin: 72px auto;
         }
 
         .products .options {
@@ -278,6 +233,7 @@
             flex-wrap: wrap;
             row-gap: 40px;
             column-gap: 20px;
+            justify-content: center;
         }
 
         .product-card {
@@ -288,6 +244,7 @@
             row-gap: 24px;
             padding: 16px 8px;
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .product-card .preview {
@@ -311,7 +268,7 @@
         .information .title {
             font-size: 15px;
             line-height: 175%;
-            font-weight: 600;
+            font-weight: 500;
             color: #0e1422;
         }
 
@@ -324,7 +281,6 @@
         }
 
         .information .pricing .availability {
-            cursor: pointer;
             height: 100%;
             display: flex;
             align-items: center;
@@ -351,12 +307,10 @@
     <script>
         function setActiveOptions(span) {
             document.querySelectorAll('span.active').forEach(el => {
-                if (el !== span) {
-                    el.classList.remove('active');
-                }
+                el.classList.remove('active');
             });
 
-            span.classList.toggle('active');
+            span.classList.add('active');
         }
     </script>
 @endpush

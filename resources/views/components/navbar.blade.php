@@ -6,7 +6,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Categories <span class="dropdown">›</span></a></li>
+                <li><a href="javascript:void(0)" onclick="alert('woi')">Categories <span class="dropdown">›</span></a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>

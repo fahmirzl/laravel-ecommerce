@@ -50,8 +50,8 @@
     </div>
     <div class="products" id="products">
         <div class="options">
-            <span onclick="setActiveOptions(this); window.location.href = '/#products'" class="active">Featured</span>
-            <span onclick="setActiveOptions(this); window.location.href = '?type=latest#products'">Latest</span>
+            <span onclick="window.location.href = '/#products'">Featured</span>
+            <span onclick="window.location.href = '?type=latest#products'">Latest</span>
         </div>
         <div class="content">
             @foreach ($products as $product)
@@ -305,12 +305,13 @@
 
 @push('scripts')
     <script>
-        function setActiveOptions(span) {
-            document.querySelectorAll('span.active').forEach(el => {
-                el.classList.remove('active');
-            });
-
-            span.classList.add('active');
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.search === '?type=latest') {
+                document.querySelector('.options span:last-child').classList.add('active');
+            }
+            else {
+                document.querySelector('.options span:first-child').classList.add('active');
+            }
+        });
     </script>
 @endpush

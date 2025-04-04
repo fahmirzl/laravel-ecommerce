@@ -10,11 +10,12 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         $params = $request->input('type');
+        $products = null;
         if ($params == 'latest') {
-            dd("Latest");
+            $products = Product::where('id', 2)->get();
         } else {
-            $products = Product::all();
-            return view('customer.index', compact('products'));
+            $products = Product::where('id', 1)->get();
         }
+        return view('customer.index', compact('products'));
     }
 }

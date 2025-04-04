@@ -4,12 +4,11 @@
 }
 
 .navbar .container {
-    width: 100%;
+    max-width: 1124px;
     height: 100%;
     margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 19px;
-    padding-inline: 162px;
 }
 
 .nav-items {

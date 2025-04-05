@@ -170,3 +170,57 @@ footer .copyright {
 .sidebar .menu-items.active .icon path {
     stroke: #0e1422;
 }
+
+.app-bar {
+    width: calc(100% - 260px);
+    height: 72px;
+    margin-left: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 22px;
+}
+
+.app-bar .breadcrumbs {
+    margin-left: 47px;
+    display: flex;
+    row-gap: 8px;
+    padding-inline: 12px;
+    align-items: center;
+}
+
+.breadcrumbs .wrapper {
+    display: flex;
+    column-gap: 4px;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.breadcrumbs .before {
+    font-weight: 500;
+    color: #5c5f6a;
+    font-size: 14px;
+    line-height: 175%;
+    text-decoration: none;
+}
+
+.breadcrumbs .after {
+    font-weight: 500;
+    color: #0e1422;
+    font-size: 14px;
+    line-height: 175%;
+    text-decoration: none;
+}
+
+.app-bar .logout-btn {
+    border: none;
+    background-color: transparent;
+    margin-right: 80px;
+    cursor: pointer;
+}
+
+.main-admin {
+    width: calc(100% - 260px);
+    margin-left: 260px;
+    
+}

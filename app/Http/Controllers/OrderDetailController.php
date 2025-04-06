@@ -10,17 +10,25 @@ class OrderDetailController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         if (request()->has('order_id')) {
             $order_id = request('order_id');
-            $orderDetails = OrderDetail::with('product', 'order')->where('order_id', $order_id)->get();
+            if ($request->has('search') and $request->method('GET')) {
+                $search = $request->input('search');
+                $orderDetails = OrderDetail::with('product', 'order')->where('order_id', $order_id)->whereHas('product', function ($query) use ($search) {
+                    $query->where('product', 'like', "%$search%");
+                })->get();
+            } else if ($request->method('DETAIL')) {
+                $orderDetails = OrderDetail::with('product', 'order')->where('order_id', $order_id)->get();
+            }
             return view('administrator.order-details', compact('orderDetails', 'order_id'));
-        }
-        else {
+        } else {
             abort(404);
         }
     }
+
+    public static $id;
 
     /**
      * Show the form for creating a new resource.

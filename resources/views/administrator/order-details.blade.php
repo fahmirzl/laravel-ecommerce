@@ -13,8 +13,8 @@
                 <div class="group">
                     <div class="search-data">
                         <img src="{{ asset('search.svg') }}">
-                        <input type="text" placeholder="Search order detail" class="search-item" id="search"
-                            value="" autocomplete="off">
+                        <input type="text" placeholder="Search order detail" onkeydown="search(event, {{ $order_id }})" class="search-item"
+                            id="search" value="{{ request('search') }}" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -51,7 +51,8 @@
                             </td>
                             <td>
                                 <div class="data">
-                                    {{ number_format($orderDetail->quantity * $orderDetail->product->price, 0, ',', '.') }} IDR
+                                    {{ number_format($orderDetail->quantity * $orderDetail->product->price, 0, ',', '.') }}
+                                    IDR
                                 </div>
                             </td>
                         </tr>
@@ -238,4 +239,15 @@
             column-gap: 12px;
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script>
+        function search(event, orderId) {
+            if (event.key === "Enter") {
+                window.location.href = "?order_id=" + encodeURIComponent(orderId) +
+                    "&search=" + encodeURIComponent(event.target.value);
+            }
+        }
+    </script>
 @endpush

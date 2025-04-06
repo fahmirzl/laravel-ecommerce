@@ -23,7 +23,7 @@ Route::prefix('v1')->group(function () {
         Route::prefix('orders')->group(function() {
             Route::get('/', [OrderController::class, 'index'])->name('admin_orders');
             Route::patch('/complete/{order}', [OrderController::class, 'complete'])->name('complete_orders');
-            Route::match(['DETAIL'], '/detail', [OrderDetailController::class, 'index'])->name('detail_orders');
+            Route::match(['DETAIL', 'GET'], '/detail', [OrderDetailController::class, 'index'])->name('detail_orders');
         });
     });
 });

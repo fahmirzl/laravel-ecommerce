@@ -10,7 +10,7 @@
             <div class="list-view">
                 <span class="title">Products</span>
                 <div class="group">
-                    <button class="btn-add" onclick="window.location.href = '/v1/admin/products/add'"><span>Add
+                    <button class="btn-add" onclick="window.location.href = '{{ route('create_products') }}'"><span>Add
                             product</span></button>
                     <div class="search-data">
                         <img src="{{ asset('search.svg') }}">
@@ -252,7 +252,7 @@
         }
 
         .data.action {
-            column-gap: 9.5px;
+            column-gap: 12px;
         }
     </style>
 @endpush

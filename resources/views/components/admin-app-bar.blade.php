@@ -1,9 +1,9 @@
 <header class="app-bar">
     <div class="breadcrumbs">
         <div class="wrapper">
-            <a href="#" class="before">{{ $before }}</a>
+            <a href="{{ $before_link ?? null }}" class="before">{{ $before }}</a>
             <img src="{{ asset('direction.svg') }}" class="direction">
-            <a href="#" class="after">{{ $after }}</a>
+            <a href="{{ $after_link ?? null }}" class="after">{{ $after }}</a>
         </div>
     </div>
     <form action="#" class="logout-form" method="POST">

@@ -3,7 +3,7 @@
         <img src="{{ asset('admin-logo.svg') }}" alt="">
     </div>
     <div class="menus">
-        <a href="#" class="menu-items {{ request()->path() === 'v1/admin' ? 'active' : '' }}">
+        <a href="/v1/admin/" class="menu-items {{ request()->path() === 'v1/admin' ? 'active' : '' }}">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"> 
                 <path d="M2.71423 13.4286L11.9999 4.14285L21.2857 13.4286" stroke="#5C5F6A" stroke-width="1.42857"
                     stroke-linecap="round" stroke-linejoin="round" />
@@ -12,7 +12,7 @@
             </svg>
             <span class="label">Home</span>
         </a>
-        <a href="#" class="menu-items">
+        <a href="/v1/admin/products" class="menu-items {{ str_starts_with(request()->path(), 'v1/admin/products') ? 'active' : '' }}">
             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"
                 class="icon">
                 <path

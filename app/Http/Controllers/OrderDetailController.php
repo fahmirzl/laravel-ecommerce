@@ -12,7 +12,14 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        //
+        if (request()->has('order_id')) {
+            $order_id = request('order_id');
+            $orderDetails = OrderDetail::with('product', 'order')->where('order_id', $order_id)->get();
+            return view('administrator.order-details', compact('orderDetails', 'order_id'));
+        }
+        else {
+            abort(404);
+        }
     }
 
     /**

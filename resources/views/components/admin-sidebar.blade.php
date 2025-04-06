@@ -21,7 +21,7 @@
             </svg>
             <span class="label">Products</span>
         </a>
-        <a href="#" class="menu-items">
+        <a href="/v1/admin/orders" class="menu-items {{ str_starts_with(request()->path(), 'v1/admin/orders') ? 'active' : '' }}">
             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"
                 class="svg">
                 <path

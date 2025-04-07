@@ -28,8 +28,6 @@ class OrderDetailController extends Controller
         }
     }
 
-    public static $id;
-
     /**
      * Show the form for creating a new resource.
      */

@@ -35,6 +35,8 @@
                             <small class="error">{{ $errors->first('stock') }}</small>
                         @endif
                     </div>
+                </div>
+                <div class="right-section">
                     <div class="input-control">
                         <label for="category">Category</label>
                         <input type="text" id="category" name="category" value="{{ old('category') }}">
@@ -42,8 +44,6 @@
                             <small class="error">{{ $errors->first('category') }}</small>
                         @endif
                     </div>
-                </div>
-                <div class="right-section">
                     <div class="input-control">
                         <label for="product">Image</label>
                         <input type="file" class="file-input" name="image" value="{{ old('image') }}">
@@ -107,14 +107,20 @@
         .input-form .left-section {
             display: flex;
             flex-direction: column;
-            row-gap: 16px;
+            row-gap: 40px;
+        }
+
+        .input-form .right-section {
+            display: flex;
+            flex-direction: column;
+            row-gap: 40px;
         }
 
         .input-control {
             display: flex;
             flex-direction: column;
             width: 320px;
-            gap: 8px;
+            gap: 12px;
         }
 
         .input-control label {

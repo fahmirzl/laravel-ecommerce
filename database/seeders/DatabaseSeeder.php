@@ -17,9 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::factory()->count(5)->create([
+            'role' => 'customer'
         ]);
 
         $this->call([
@@ -31,9 +30,35 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
+        Order::create([
+            'user_id' => 2,
+        ]);
+
+        Order::create([
+            'user_id' => 3,
+        ]);
+
         OrderDetail::create([
             'order_id' => 1,
             'product_id' => 1,
+            'quantity' => 2
+        ]);
+
+        OrderDetail::create([
+            'order_id' => 2,
+            'product_id' => 1,
+            'quantity' => 1
+        ]);
+
+        OrderDetail::create([
+            'order_id' => 2,
+            'product_id' => 2,
+            'quantity' => 1
+        ]);
+
+        OrderDetail::create([
+            'order_id' => 3,
+            'product_id' => 2,
             'quantity' => 2
         ]);
     }

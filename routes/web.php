@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
@@ -24,6 +25,9 @@ Route::prefix('v1')->group(function () {
             Route::get('/', [OrderController::class, 'index'])->name('admin_orders');
             Route::patch('/complete/{order}', [OrderController::class, 'complete'])->name('complete_orders');
             Route::match(['DETAIL', 'GET'], '/detail', [OrderDetailController::class, 'index'])->name('detail_orders');
+        });
+        Route::prefix('customers')->group(function() {
+            Route::get('/', CustomerController::class);
         });
     });
 });

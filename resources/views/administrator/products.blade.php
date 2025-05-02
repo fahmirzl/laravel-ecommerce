@@ -20,7 +20,7 @@
             </div>
             <table class="data-table">
                 <thead>
-                    <th><img src="{{ asset('sort-table.svg') }}" class="sort-table"></th>
+                    <th style="width: 150px"><img src="{{ asset('sort-table.svg') }}" class="sort-table"></th>
                     <th>Product</th>
                     <th>Category</th>
                     <th>Price</th>

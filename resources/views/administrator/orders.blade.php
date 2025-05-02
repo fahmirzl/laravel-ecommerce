@@ -19,7 +19,7 @@
             </div>
             <table class="data-table">
                 <thead>
-                    <th><img src="{{ asset('sort-table.svg') }}" class="sort-table"></th>
+                    <th style="width: 150px"><img src="{{ asset('sort-table.svg') }}" class="sort-table"></th>
                     <th>Customer</th>
                     <th style="width: 200px">Date</th>
                     <th>Status</th>
@@ -41,7 +41,7 @@
                             </td>
                             <td>
                                 <div class="data">
-                                    {{ $order->created_at }}
+                                    {{ \Carbon\Carbon::createFromTimestamp($order->created_at)->toFormattedDateString() }}
                                 </div>
                             </td>
                             <td>

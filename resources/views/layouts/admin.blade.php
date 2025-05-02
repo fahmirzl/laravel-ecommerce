@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +10,25 @@
     <style>
         body {
             background-color: #f6f6f6;
+        }
+        .desktop-only {
+            background-color: #1a202c;
+            overflow: hidden;
+            width: 100%;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .desktop-only p {
+            font-family: 'Consolas';
+            color: rgba(160, 174, 192, 1);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            display: flex;
+            letter-spacing: 4px;
         }
     </style>
     @stack('styles')
@@ -28,23 +46,23 @@
         @yield('main')
     </main>
     <script>
-        // const originalContent = document.body.innerHTML;
-        // window.addEventListener('resize', () => {
-        //     if (window.innerWidth < 768) {
-        //         document.body.innerHTML = 'no'
-        //     }
-        //     else {
-        //         document.body.innerHTML = originalContent;
-        //     }
-        // });
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     if (window.innerWidth < 768) {
-        //         document.body.innerHTML = 'no'
-        //     }
-        //     else {
-        //         document.body.innerHTML = originalContent;
-        //     }
-        // });
+        const originalContent = document.body.innerHTML;
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 1648) {
+                document.body.innerHTML = '<div class="desktop-only"><p>DESKTOP ONLY</p></div>'
+            }
+            else {
+                document.body.innerHTML = originalContent;
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.innerWidth < 1648) {
+                document.body.innerHTML = '<div class="desktop-only"><p>DESKTOP ONLY</p></div>'
+            }
+            else {
+                document.body.innerHTML = originalContent;
+            }
+        });
     </script>
     @stack('scripts')
 </body>

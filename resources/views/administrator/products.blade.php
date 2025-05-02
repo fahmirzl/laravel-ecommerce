@@ -125,7 +125,7 @@
         .list-view .group .btn-add {
             cursor: pointer;
             width: 124px;
-            height: calc(100% - 2px);
+            height: calc(100% - 3px);
             border: none;
             outline: none;
             padding: 12px 20px;
